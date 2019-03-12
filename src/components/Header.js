@@ -16,7 +16,9 @@ class Header extends Component {
 						/>
 					</div>
 				</div>
-				<div className="sub-header">1</div>
+				<div className="sub-header">
+					<SubHeader />
+				</div>
 			</div>
 		);
 	}
@@ -40,6 +42,33 @@ const User = ({ name, avatar }) => {
 				</li>
 			</ul>
 		</div>
+	);
+};
+
+const SubHeader = () => {
+	return (
+		<ul>
+			<li>
+				<a href="/" title="#">
+					<Icon icon="far fa-folder-open" /> Open Projects
+				</a>
+			</li>
+			<li>
+				<a href="/" title="#">
+					<Icon icon="far fa-list-alt" /> Categories
+				</a>
+			</li>
+			<li>
+				<a href="/" title="#">
+                <Icon icon="far fa-newspaper" /> Latest Projects
+				</a>
+			</li>
+			<li>
+				<a href="/" title="#">
+                <Icon icon="fas fa-award" /> Ranks
+				</a>
+			</li>
+		</ul>
 	);
 };
 

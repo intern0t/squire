@@ -26,13 +26,43 @@ body {
 				padding: 20px;
 
 				&:nth-child(1) {
-					height: $navigation-height - 30px;
+					height: $navigation-height - 40px;
 					border-bottom: 2px dashed rgba($Gray, 0.1);
 				}
 
 				&:nth-child(2) {
 					height: $navigation-height - 20px;
-					border-bottom: 2px solid rgba($Gray, 0.1);
+					border-bottom: 3px solid rgba($Gray, 0.1);
+
+					ul {
+						width: 100%;
+						@include Flex(row);
+						justify-content: center;
+						align-items: center;
+						align-content: center;
+
+						li {
+							a,
+							a:visited {
+								text-decoration: none;
+								padding: 10px 25px;
+								font-size: $defaultFontSize + 2;
+								font-weight: bold;
+								letter-spacing: 0.7px;
+                                color: rgba($Gray, 0.9);
+
+								.fas,
+								.far {
+                                    font-size: $defaultFontSize + 5;
+                                    margin: 0 10px;
+                                }
+                                
+                                &:hover {
+                                    color: $Azure;
+                                }
+							}
+						}
+					}
 				}
 
 				&-section {
