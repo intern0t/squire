@@ -35,7 +35,7 @@ const User = ({ name, avatar }) => {
 				</li>
 				<li>
 					<a href="#" title="">
-						<img src={avatar} className="avatar" />
+						{/* <img src={avatar} className="avatar" /> */}
 						{name}
 					</a>
 					<Icon icon="fas fa-angle-down" />

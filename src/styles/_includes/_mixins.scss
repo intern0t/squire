@@ -9,3 +9,16 @@
 	display: flex;
 	flex-direction: $dir;
 }
+
+@mixin BoxShadow($data...) {
+	-webkit-box-shadow: $data;
+	-moz-box-shadow: $data;
+	box-shadow: $data;
+}
+
+@mixin Transition($data...) {
+	-webkit-transition: $data;
+	-moz-transition: $data;
+	-o-transition: $data;
+	transition: $data;
+}
