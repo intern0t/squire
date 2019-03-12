@@ -1,0 +1,11 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : _mixins.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-11
+ */
+
+@mixin Flex($dir) {
+	display: flex;
+	flex-direction: $dir;
+}

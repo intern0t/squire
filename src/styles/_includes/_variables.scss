@@ -1,0 +1,21 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : _variables.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-11
+ */
+
+@import "./fonts";
+
+// Defaults
+$defaultFontSize: 16px;
+$defaultFontFamily: $Overpass;
+
+$hundred-percent: 100%;
+
+// Navigation bar.
+$navigation-height: 80px;
+$avatar-dimension: 40px;
+
+// Footer.
+$footer-height: 100px;

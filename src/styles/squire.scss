@@ -1,0 +1,112 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : squire.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-11
+ */
+
+@import "./_includes/reset", "./_includes/variables", "./_includes/colors",
+	"./_includes/mixins", "./_includes/fonts";
+
+body {
+	font-family: $defaultFontFamily;
+	font-size: $defaultFontSize;
+
+	.App {
+		width: $hundred-percent;
+		height: $hundred-percent;
+
+		.header {
+			@include Flex(column);
+
+			.sub-header {
+				@include Flex(row);
+				justify-content: space-between;
+				align-items: center;
+				padding: 20px;
+
+				&:nth-child(1) {
+					height: $navigation-height - 30px;
+					border-bottom: 2px dashed rgba($Gray, 0.1);
+				}
+
+				&:nth-child(2) {
+					height: $navigation-height - 20px;
+					border-bottom: 2px solid rgba($Gray, 0.1);
+				}
+
+				&-section {
+					@include Flex(row);
+
+					.logo {
+						margin: 10px;
+						font-weight: bold;
+						font-size: $defaultFontSize + 5;
+						letter-spacing: 1.5px;
+						color: $Gray;
+					}
+
+					&-user {
+						padding: 10px;
+
+						ul {
+							@include Flex(row);
+
+							li {
+								@include Flex(row);
+								justify-content: center;
+								align-items: center;
+
+								a,
+								a:visited {
+									text-decoration: none;
+									letter-spacing: 0.3px;
+									font-size: $defaultFontSize;
+									cursor: pointer;
+									color: $Gray;
+									font-weight: bold;
+									margin: 5px;
+									@include Flex(row);
+									align-items: center;
+
+									.avatar {
+										max-width: $avatar-dimension;
+										max-height: $avatar-dimension;
+										min-width: $avatar-dimension;
+										min-height: $avatar-dimension;
+										overflow: hidden;
+										border-radius: 50%;
+										margin: 0 10px;
+										border: 3px solid $Silver;
+										opacity: 0.7;
+									}
+
+									.far {
+										font-size: $defaultFontSize + 4;
+										margin: 0 10px;
+										margin-top: -3px;
+									}
+								}
+
+								.fas {
+									color: $Gray;
+									margin: 0 10px;
+									margin-top: -3px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.main-container {
+			width: $hundred-percent;
+		}
+
+		.footer {
+			width: $hundred-percent;
+			height: $footer-height;
+		}
+	}
+}
