@@ -253,17 +253,22 @@ body {
 
 					tbody {
 						tr {
-							padding: 15px 0;
+							padding: 15px 20px;
+							border-bottom: 1px dashed rgba($RockBlue, 0.1);
 
 							td {
 								width: 100%;
 								overflow: hidden;
-								padding: 0 5px;
+								padding: 10px 5px;
 								text-align: center;
 								@include Flex(row);
 								align-content: center;
 								align-items: center;
 								justify-content: center;
+							}
+
+							&:hover {
+								background: rgba($RockBlue, 0.1);
 							}
 						}
 					}
