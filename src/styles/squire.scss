@@ -6,7 +6,7 @@
  */
 
 @import "./_includes/reset", "./_includes/variables", "./_includes/colors",
-	"./_includes/mixins", "./_includes/fonts";
+	"./_includes/mixins", "./_includes/fonts", "./_includes/components";
 
 body {
 	font-family: $defaultFontFamily;
@@ -195,7 +195,7 @@ body {
 									@include Flex(row);
 									align-content: center;
 									align-items: center;
-									margin: 0 20px;
+									margin: 0 10px;
 
 									span {
 										font-size: $defaultFontSize;
@@ -212,6 +212,58 @@ body {
 										padding: 10px;
 									}
 								}
+							}
+						}
+					}
+				}
+			}
+
+			.tabular {
+				@include Flex(column);
+				padding: 25px;
+
+				h1 {
+					font-size: $defaultFontSize + 3;
+					font-weight: bold;
+					color: $Azure;
+					letter-spacing: 1px;
+				}
+
+				table {
+					margin: 25px 0;
+
+					thead,
+					tbody {
+						tr {
+							@include Flex(row);
+							justify-content: space-evenly;
+						}
+					}
+
+					thead {
+						tr > th {
+							width: $hundred-percent;
+							letter-spacing: 0.3px;
+							text-align: center;
+							color: $RockBlue;
+							font-size: $defaultFontSize + 1;
+							padding: 20px 0;
+						}
+					}
+
+					tbody {
+						tr {
+							padding: 15px 0;
+
+							td {
+								width: 100%;
+								overflow: hidden;
+								padding: 0 5px;
+								text-align: center;
+								@include Flex(row);
+								align-content: center;
+								align-items: center;
+								justify-content: center;
 							}
 						}
 					}

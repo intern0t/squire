@@ -1,0 +1,66 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : _components.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-12
+ */
+
+@import "./colors", "./variables";
+
+$defaultRadius: 3px;
+$defaultPadding: 7px 10px;
+
+.privacy {
+	text-decoration: none;
+	font-size: $defaultFontSize - 3;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+
+	&-oss {
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($CaribbeanGreen, 0.1);
+		color: $CaribbeanGreen;
+		letter-spacing: 0.3px;
+	}
+
+	&-private {
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($CaribbeanRed, 0.1);
+		color: $CaribbeanRed;
+		letter-spacing: 0.3px;
+	}
+}
+
+.repository {
+	&-github {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#272522, 0.5);
+		color: $White;
+	}
+
+	&-gitlab {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#db3b21, 0.2);
+		color: #db3b21;
+	}
+
+	&-bitbucket {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($Azure, 0.1);
+		color: $Azure;
+	}
+}

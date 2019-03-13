@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Filters from "./Filters";
+import Tabular from "./Tabular";
 
 class MainContainer extends Component {
 	render() {
 		return (
 			<div className="main-container">
 				<Filters />
-				Other shits
+				<Tabular title="Projects" />
 			</div>
 		);
 	}

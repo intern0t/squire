@@ -30,13 +30,13 @@ const User = ({ name, avatar }) => {
 			<ul>
 				<li>
 					<a href="#" title="">
-						<Icon icon="far fa-bell" />
+						{name}
+						<Icon icon="fas fa-angle-down" />
 					</a>
 				</li>
 				<li>
 					<a href="#" title="">
-						{name}
-						<Icon icon="fas fa-angle-down" />
+						<Icon icon="far fa-bell" />
 					</a>
 				</li>
 			</ul>
