@@ -35,10 +35,9 @@ const User = ({ name, avatar }) => {
 				</li>
 				<li>
 					<a href="#" title="">
-						{/* <img src={avatar} className="avatar" /> */}
 						{name}
+						<Icon icon="fas fa-angle-down" />
 					</a>
-					<Icon icon="fas fa-angle-down" />
 				</li>
 			</ul>
 		</div>
@@ -50,7 +49,7 @@ const SubHeader = () => {
 		<ul>
 			<li>
 				<a href="/" title="#">
-					<Icon icon="far fa-folder-open" /> Open Projects
+					<Icon icon="fas fa-file-export" /> Submit Project
 				</a>
 			</li>
 			<li>
@@ -60,12 +59,12 @@ const SubHeader = () => {
 			</li>
 			<li>
 				<a href="/" title="#">
-                <Icon icon="far fa-newspaper" /> Latest Projects
+					<Icon icon="far fa-newspaper" /> Latest Projects
 				</a>
 			</li>
 			<li>
 				<a href="/" title="#">
-                <Icon icon="fas fa-award" /> Ranks
+					<Icon icon="fas fa-award" /> Ranks
 				</a>
 			</li>
 		</ul>

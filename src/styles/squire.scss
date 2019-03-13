@@ -24,16 +24,14 @@ body {
 				@include Flex(row);
 				justify-content: space-between;
 				align-items: center;
-				padding: 20px;
 
 				&:nth-child(1) {
+					padding: 20px;
 					height: $navigation-height - 50px;
 					border-bottom: 2px dashed rgba($Gray, 0.3);
 				}
 
 				&:nth-child(2) {
-					height: $navigation-height - 20px;
-
 					ul {
 						width: 100%;
 						@include Flex(row);
@@ -42,14 +40,18 @@ body {
 						align-content: center;
 
 						li {
+							height: $hundred-percent;
+
 							a,
 							a:visited {
 								text-decoration: none;
-								padding: 10px 25px;
+								padding: 20px;
 								font-size: $defaultFontSize + 1;
 								font-weight: bold;
 								letter-spacing: 0.7px;
 								color: rgba($Gray, 0.9);
+								line-height: $navigation-height - 30px;
+								display: block;
 
 								.fas,
 								.far {
@@ -74,6 +76,7 @@ body {
 						font-size: $defaultFontSize + 5;
 						letter-spacing: 1.5px;
 						color: $Azure;
+						cursor: pointer;
 						@include Transition((color 0.5s ease-in-out));
 
 						&:hover {
@@ -121,6 +124,14 @@ body {
 										margin: 0 10px;
 										margin-top: -3px;
 									}
+
+									&:hover {
+										.far,
+										.fas {
+											color: $Azure;
+										}
+										color: $Azure;
+									}
 								}
 
 								.fas {
@@ -137,6 +148,10 @@ body {
 
 		.main-container {
 			width: $hundred-percent;
+
+			.filter-container {
+				background: rgba($Alabaster, 0.8);
+			}
 		}
 
 		.footer {
