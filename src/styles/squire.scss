@@ -149,8 +149,73 @@ body {
 		.main-container {
 			width: $hundred-percent;
 
-			.filter-container {
-				background: rgba($Alabaster, 0.8);
+			.filter-wrapper {
+				min-width: 150px;
+				background: $Azure;
+				@include Flex(row);
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+
+				.filter-container {
+					max-width: 1200px;
+					padding: 25px;
+					color: $White;
+					@include Flex(row);
+					align-items: center;
+					align-content: center;
+
+					&-section {
+						@include Flex(row);
+						align-items: center;
+						align-content: center;
+						justify-content: center;
+
+						.fas,
+						.far {
+							margin-right: 10px;
+							font-size: $defaultFontSize;
+						}
+
+						&:nth-child(1) {
+							font-weight: bold;
+						}
+
+						// Filters
+						&:nth-child(2) {
+							flex: 1;
+							margin-left: 25px;
+
+							ul {
+								@include Flex(row);
+								align-content: center;
+								align-items: center;
+
+								li {
+									@include Flex(row);
+									align-content: center;
+									align-items: center;
+									margin: 0 20px;
+
+									span {
+										font-size: $defaultFontSize;
+										margin: 0 10px;
+									}
+
+									select {
+										// height: $defaultFontSize + 10;
+										background: $White;
+										color: $Black;
+										outline: 0;
+										border: 0;
+										@include BorderRadius(25px);
+										padding: 10px;
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 
