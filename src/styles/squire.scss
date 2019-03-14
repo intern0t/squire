@@ -265,6 +265,12 @@ body {
 								align-content: center;
 								align-items: center;
 								justify-content: center;
+								color: $Gray;
+
+								&:first-child {
+									font-weight: bold;
+									letter-spacing: 0.4px;
+								}
 							}
 
 							&:hover {
@@ -280,6 +286,15 @@ body {
 		.footer {
 			width: $hundred-percent;
 			height: $footer-height;
+			background: $Azure;
+			color: $White;
+			@include Flex(row);
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			letter-spacing: 0.2px;
+			font-size: $defaultFontSize;
+			line-height: $defaultFontSize + 1;
 		}
 	}
 }
