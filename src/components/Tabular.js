@@ -15,7 +15,6 @@ class Tabular extends Component {
 				<table>
 					<thead>
 						<tr>
-							<th>Logo/Images</th>
 							<th>Project Title</th>
 							<th>Description</th>
 							<th>Repository Link</th>
@@ -26,7 +25,6 @@ class Tabular extends Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
 							<td>1</td>
 							<td>1</td>
 							<td>
@@ -46,7 +44,6 @@ class Tabular extends Component {
 						<tr>
 							<td>1</td>
 							<td>1</td>
-							<td>1</td>
 							<td>
 								<Repository
 									type="github"
@@ -62,7 +59,6 @@ class Tabular extends Component {
 							<td>Wed Mar 13 16:29:35 EDT 2019</td>
 						</tr>
 						<tr>
-							<td>1</td>
 							<td>1</td>
 							<td>1</td>
 							<td>
@@ -82,7 +78,6 @@ class Tabular extends Component {
 						<tr>
 							<td>1</td>
 							<td>1</td>
-							<td>1</td>
 							<td>
 								<Repository
 									type="codecommit"
@@ -100,7 +95,6 @@ class Tabular extends Component {
 						<tr>
 							<td>1</td>
 							<td>1</td>
-							<td>1</td>
 							<td>
 								<Repository
 									type="bitbucket"
@@ -108,7 +102,7 @@ class Tabular extends Component {
 								/>
 							</td>
 							<td>
-								<Language language="c++" />
+								<Language language="php" />
 							</td>
 							<td>
 								<Privacy type={0} />
@@ -116,7 +110,6 @@ class Tabular extends Component {
 							<td>Wed Mar 13 16:29:35 EDT 2019</td>
 						</tr>
 						<tr>
-							<td>1</td>
 							<td>1</td>
 							<td>1</td>
 							<td>
@@ -150,6 +143,10 @@ const Privacy = ({ type }) => {
 	);
 };
 
+/**
+ * Extract domain without the TLD.
+ * @param {*} url
+ */
 var getDomain = url => {
 	var a = document.createElement("a");
 	a.href = url;
@@ -176,6 +173,9 @@ const Repository = ({ type, link }) => {
 	);
 };
 
+/**
+ * Special thanks to https://stackoverflow.com/a/5624139
+ */
 var generateRandomColor = () => {
 	var toReturn = null;
 	var generatedHex =
