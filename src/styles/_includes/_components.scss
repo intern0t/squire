@@ -1,0 +1,136 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : _components.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-12
+ */
+
+@import "./colors", "./variables", "./mixins";
+
+$defaultRadius: 3px;
+$defaultPadding: 7px 10px;
+
+.privacy {
+	text-decoration: none;
+	font-size: $defaultFontSize - 3;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+
+	&-oss {
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($CaribbeanGreen, 0.1);
+		color: $CaribbeanGreen;
+		letter-spacing: 0.3px;
+	}
+
+	&-private {
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($CaribbeanRed, 0.1);
+		color: $CaribbeanRed;
+		letter-spacing: 0.3px;
+	}
+}
+
+.repository {
+	@include Flex(row);
+	align-items: center;
+	align-content: center;
+
+	&-* {
+		.fas,
+		.fab,
+		.far {
+			margin: 0 5px 0 0;
+		}
+	}
+
+	&-github {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#272522, 0.5);
+		color: $White;
+	}
+
+	&-gitlab {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#db3b21, 0.2);
+		color: #db3b21;
+	}
+
+	&-bitbucket {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba($Azure, 0.1);
+		color: $Azure;
+	}
+
+	&-beanstalk {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#5cad69, 0.1);
+		color: #5cad69;
+	}
+
+	&-subversion {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#809cc9, 0.1);
+		color: #809cc9;
+	}
+
+	&-codecommit {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#f88c28, 0.1);
+		color: #f88c28;
+	}
+
+	&-mercurial {
+		text-decoration: none;
+		font-size: $defaultFontSize - 3;
+		letter-spacing: 0.3px;
+		border-radius: $defaultRadius;
+		padding: $defaultPadding;
+		background: rgba(#999999, 0.1);
+		color: #999999;
+	}
+}
+
+.language {
+	text-decoration: none;
+	font-size: $defaultFontSize - 3;
+	letter-spacing: 0.3px;
+	border-radius: $defaultRadius;
+	padding: $defaultPadding;
+	text-transform: capitalize;
+	@include Flex(row);
+	align-items: center;
+	align-content: center;
+
+	.far,
+	.fas,
+	.fab {
+		margin-right: 5px;
+	}
+}

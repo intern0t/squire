@@ -1,0 +1,304 @@
+/**
+ * Copyright (c) 2019, Squire
+ * Document     : squire.scss
+ * Developer    : Prashant Shrestha (www.prashant.me)
+ * Date         : 2019-03-11
+ */
+
+@import "./_includes/reset", "./_includes/variables", "./_includes/colors",
+	"./_includes/mixins", "./_includes/fonts", "./_includes/components";
+
+body {
+	font-family: $defaultFontFamily;
+	font-size: $defaultFontSize;
+
+	.App {
+		width: $hundred-percent;
+		height: $hundred-percent;
+
+		.header {
+			@include Flex(column);
+			@include BoxShadow(0px 0px 10px 0px rgba($Gray, 0.75));
+
+			.sub-header {
+				@include Flex(row);
+				justify-content: space-between;
+				align-items: center;
+
+				&:nth-child(1) {
+					padding: 20px;
+					height: $navigation-height - 50px;
+					border-bottom: 2px dashed rgba($Gray, 0.3);
+				}
+
+				&:nth-child(2) {
+					ul {
+						width: 100%;
+						@include Flex(row);
+						justify-content: center;
+						align-items: center;
+						align-content: center;
+
+						li {
+							height: $hundred-percent;
+
+							a,
+							a:visited {
+								text-decoration: none;
+								padding: 20px;
+								font-size: $defaultFontSize + 1;
+								font-weight: bold;
+								letter-spacing: 0.7px;
+								color: rgba($Gray, 0.9);
+								line-height: $navigation-height - 30px;
+								display: block;
+
+								.fas,
+								.far {
+									font-size: $defaultFontSize + 5;
+									margin: 0 10px;
+								}
+
+								&:hover {
+									color: $Azure;
+								}
+							}
+						}
+					}
+				}
+
+				&-section {
+					@include Flex(row);
+
+					.logo {
+						margin: 10px;
+						font-weight: bold;
+						font-size: $defaultFontSize + 5;
+						letter-spacing: 1.5px;
+						color: $Azure;
+						cursor: pointer;
+						@include Transition((color 0.5s ease-in-out));
+
+						&:hover {
+							color: $Gray;
+						}
+					}
+
+					&-user {
+						padding: 10px;
+
+						ul {
+							@include Flex(row);
+
+							li {
+								@include Flex(row);
+								justify-content: center;
+								align-items: center;
+
+								a,
+								a:visited {
+									text-decoration: none;
+									letter-spacing: 0.3px;
+									font-size: $defaultFontSize;
+									cursor: pointer;
+									color: $Gray;
+									font-weight: bold;
+									margin: 5px;
+									@include Flex(row);
+									align-items: center;
+
+									.avatar {
+										max-width: $avatar-dimension;
+										max-height: $avatar-dimension;
+										min-width: $avatar-dimension;
+										min-height: $avatar-dimension;
+										overflow: hidden;
+										border-radius: 50%;
+										margin: 0 10px;
+										border: 3px solid $Silver;
+										opacity: 0.7;
+									}
+
+									.far {
+										font-size: $defaultFontSize + 4;
+										margin: 0 10px;
+										margin-top: -3px;
+									}
+
+									&:hover {
+										.far,
+										.fas {
+											color: $Azure;
+										}
+										color: $Azure;
+									}
+								}
+
+								.fas {
+									color: $Gray;
+									margin: 0 10px;
+									margin-top: -3px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.main-container {
+			width: $hundred-percent;
+
+			.filter-wrapper {
+				min-width: 150px;
+				background: $Azure;
+				@include Flex(row);
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+
+				.filter-container {
+					max-width: 1200px;
+					padding: 25px;
+					color: $White;
+					@include Flex(row);
+					align-items: center;
+					align-content: center;
+
+					&-section {
+						@include Flex(row);
+						align-items: center;
+						align-content: center;
+						justify-content: center;
+
+						.fas,
+						.far {
+							margin-right: 10px;
+							font-size: $defaultFontSize;
+						}
+
+						&:nth-child(1) {
+							font-weight: bold;
+						}
+
+						// Filters
+						&:nth-child(2) {
+							flex: 1;
+							margin-left: 25px;
+
+							ul {
+								@include Flex(row);
+								align-content: center;
+								align-items: center;
+
+								li {
+									@include Flex(row);
+									align-content: center;
+									align-items: center;
+									margin: 0 10px;
+
+									span {
+										font-size: $defaultFontSize;
+										margin: 0 10px;
+									}
+
+									select {
+										// height: $defaultFontSize + 10;
+										background: $White;
+										color: $Black;
+										outline: 0;
+										border: 0;
+										@include BorderRadius(25px);
+										padding: 10px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.tabular {
+				@include Flex(column);
+				padding: 25px;
+
+				h1 {
+					font-size: $defaultFontSize + 5;
+					font-weight: bold;
+					color: $Azure;
+					letter-spacing: 1px;
+                    padding: 20px 0;
+                    margin: 10px 0;
+					width: $hundred-percent;
+					text-align: center;
+				}
+
+				table {
+					margin: 25px 0;
+
+					thead,
+					tbody {
+						tr {
+							@include Flex(row);
+							justify-content: space-evenly;
+						}
+					}
+
+					thead {
+						tr > th {
+							width: $hundred-percent;
+							letter-spacing: 0.3px;
+							text-align: center;
+							color: $RockBlue;
+							font-size: $defaultFontSize + 1;
+							padding: 20px 0;
+						}
+					}
+
+					tbody {
+						tr {
+							padding: 15px 20px;
+							border-bottom: 1px dashed rgba($RockBlue, 0.1);
+
+							td {
+								width: 100%;
+								overflow: hidden;
+								padding: 10px 5px;
+								text-align: center;
+								@include Flex(row);
+								align-content: center;
+								align-items: center;
+								justify-content: center;
+								color: $Gray;
+
+								&:first-child {
+									font-weight: bold;
+									letter-spacing: 0.4px;
+								}
+							}
+
+							&:hover {
+								cursor: pointer;
+								background: rgba($RockBlue, 0.1);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.footer {
+			width: $hundred-percent;
+			height: $footer-height;
+			background: $Azure;
+			color: $White;
+			@include Flex(row);
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			letter-spacing: 0.2px;
+			font-size: $defaultFontSize;
+			line-height: $defaultFontSize + 1;
+		}
+	}
+}
