@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "./Icon";
 
-const Filters = () => {
+const Filters = ({ onSearch }) => {
 	return (
 		<div className="filter-wrapper">
 			<div className="filter-container">
@@ -12,10 +12,25 @@ const Filters = () => {
 				<div className="filter-container-section">
 					<ul>
 						<li>
+							<span>Search</span>
+							<input
+								type="text"
+								placeholder="Search submitted project(s) ..."
+								onChange={onSearch}
+							/>
+						</li>
+						{/* <li>
 							<span>Title</span>
-							<select>
+							<select onChange={onTitleFilterChange}>
 								<option>↓ Ascending</option>
 								<option>↑ Descending</option>
+							</select>
+						</li>
+						<li>
+							<span>Date</span>
+							<select>
+								<option>Newest to Oldest</option>
+								<option>Oldest to Newest</option>
 							</select>
 						</li>
 						<li>
@@ -31,7 +46,7 @@ const Filters = () => {
 								<option>♥ Open Source</option>
 								<option>⚠ Private Project</option>
 							</select>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</div>

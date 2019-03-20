@@ -223,10 +223,14 @@ body {
 				padding: 25px;
 
 				h1 {
-					font-size: $defaultFontSize + 3;
+					font-size: $defaultFontSize + 5;
 					font-weight: bold;
 					color: $Azure;
 					letter-spacing: 1px;
+                    padding: 20px 0;
+                    margin: 10px 0;
+					width: $hundred-percent;
+					text-align: center;
 				}
 
 				table {

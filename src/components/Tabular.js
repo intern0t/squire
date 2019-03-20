@@ -1,78 +1,34 @@
 import React, { Component } from "react";
 import Icon from "./Icon";
+import uuidv4 from "uuid/v4";
 
 class Tabular extends Component {
-	state = {
-		fakeData: [
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://beanstalk.com/",
-				majorLanguage: ["javascript"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://github.com/",
-				majorLanguage: ["react"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://bitbucket.com/",
-				majorLanguage: ["javascript"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://mercurial.com/",
-				majorLanguage: ["ruby"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://codecommit.com/",
-				majorLanguage: ["python"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://subversion.com/",
-				majorLanguage: ["c#"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			},
-			{
-				user: "Random User",
-				projectTitle: "Random Project Title",
-				projectDescription: "Random Project Description",
-				repoLink: "https://gitlab.com/",
-				majorLanguage: ["nodejs"],
-				privacy: Math.round(Math.random()),
-				dateAdded: "Mar 13 16:29:35 EDT 2019"
-			}
-		]
-	};
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			data: [],
+			filters: {}
+		};
+	}
+
+	componentDidMount() {
+		const { data, filters } = this.props;
+		if (data) {
+			this.setState(
+				prevState => ({
+					...prevState,
+					data,
+					filters
+				}),
+				this.filterData
+			);
+		}
+	}
 
 	render() {
-		const { title } = this.props;
-		const { fakeData } = this.state;
+		const { title, searchKey } = this.props;
+		const { data } = this.state;
 
 		return (
 			<div className="tabular">
@@ -90,37 +46,58 @@ class Tabular extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{fakeData && fakeData.length > 0
-							? fakeData.map(data => {
-									return (
-										<tr>
-											<td>{data.user}</td>
-											<td title={data.projectTitle}>
-												{data.projectTitle}
-											</td>
-											<td title={data.projectDescription}>
-												{data.projectDescription}
-											</td>
-											<td>
-												<Repository
-													link={data.repoLink}
-												/>
-											</td>
-											<td>
-												<Language
-													language={
-														data.majorLanguage[0] ||
-														"Unknown"
+						{data && data.length > 0
+							? data
+									.filter(
+										val =>
+											val.projectTitle
+												.toLowerCase()
+												.includes(searchKey) ||
+											val.projectDescription
+												.toLowerCase()
+												.includes(searchKey) ||
+											val.majorLanguage
+												.join("")
+												.includes(searchKey) ||
+											val.repoLink.includes(searchKey)
+									)
+									.map(_data => {
+										return (
+											<tr key={uuidv4()}>
+												<td>{_data.user}</td>
+												<td title={_data.projectTitle}>
+													{_data.projectTitle}
+												</td>
+												<td
+													title={
+														_data.projectDescription
 													}
-												/>
-											</td>
-											<td>
-												<Privacy type={data.privacy} />
-											</td>
-											<td>{data.dateAdded}</td>
-										</tr>
-									);
-							  })
+												>
+													{_data.projectDescription}
+												</td>
+												<td>
+													<Repository
+														link={_data.repoLink}
+													/>
+												</td>
+												<td>
+													<Language
+														language={
+															_data
+																.majorLanguage[0] ||
+															"Unknown"
+														}
+													/>
+												</td>
+												<td>
+													<Privacy
+														type={_data.privacy}
+													/>
+												</td>
+												<td>{_data.dateAdded}</td>
+											</tr>
+										);
+									})
 							: null}
 					</tbody>
 				</table>
@@ -209,8 +186,6 @@ const Language = ({ language }) => {
 		}) ||
 		language ||
 		"code";
-
-	console.log(formattedLanguage);
 
 	return (
 		<div
