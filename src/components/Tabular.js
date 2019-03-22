@@ -26,8 +26,26 @@ class Tabular extends Component {
 		}
 	}
 
+	filterData = valuesToFilter => {
+		const { searchKey } = this.props;
+
+		if (valuesToFilter && valuesToFilter != undefined) {
+			return valuesToFilter.filter(
+				value =>
+					value.projectTitle.toLowerCase().includes(searchKey) ||
+					value.projectDescription
+						.toLowerCase()
+						.includes(searchKey) ||
+					value.majorLanguage.join("").includes(searchKey) ||
+					value.repoLink.includes(searchKey)
+			);
+		} else {
+			return null;
+		}
+	};
+
 	render() {
-		const { title, searchKey } = this.props;
+		const { title } = this.props;
 		const { data } = this.state;
 
 		return (
@@ -47,57 +65,39 @@ class Tabular extends Component {
 					</thead>
 					<tbody>
 						{data && data.length > 0
-							? data
-									.filter(
-										val =>
-											val.projectTitle
-												.toLowerCase()
-												.includes(searchKey) ||
-											val.projectDescription
-												.toLowerCase()
-												.includes(searchKey) ||
-											val.majorLanguage
-												.join("")
-												.includes(searchKey) ||
-											val.repoLink.includes(searchKey)
-									)
-									.map(_data => {
-										return (
-											<tr key={uuidv4()}>
-												<td>{_data.user}</td>
-												<td title={_data.projectTitle}>
-													{_data.projectTitle}
-												</td>
-												<td
-													title={
-														_data.projectDescription
+							? this.filterData(data).map(_data => {
+									return (
+										<tr key={uuidv4()}>
+											<td>{_data.user}</td>
+											<td title={_data.projectTitle}>
+												{_data.projectTitle}
+											</td>
+											<td
+												title={_data.projectDescription}
+											>
+												{_data.projectDescription}
+											</td>
+											<td>
+												<Repository
+													link={_data.repoLink}
+												/>
+											</td>
+											<td>
+												<Language
+													language={
+														_data
+															.majorLanguage[0] ||
+														"Unknown"
 													}
-												>
-													{_data.projectDescription}
-												</td>
-												<td>
-													<Repository
-														link={_data.repoLink}
-													/>
-												</td>
-												<td>
-													<Language
-														language={
-															_data
-																.majorLanguage[0] ||
-															"Unknown"
-														}
-													/>
-												</td>
-												<td>
-													<Privacy
-														type={_data.privacy}
-													/>
-												</td>
-												<td>{_data.dateAdded}</td>
-											</tr>
-										);
-									})
+												/>
+											</td>
+											<td>
+												<Privacy type={_data.privacy} />
+											</td>
+											<td>{_data.dateAdded}</td>
+										</tr>
+									);
+							  })
 							: null}
 					</tbody>
 				</table>

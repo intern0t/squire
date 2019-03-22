@@ -186,6 +186,12 @@ body {
 							flex: 1;
 							margin-left: 25px;
 
+							span {
+								i {
+									font-size: 25px;
+								}
+							}
+
 							ul {
 								@include Flex(row);
 								align-content: center;
@@ -227,8 +233,8 @@ body {
 					font-weight: bold;
 					color: $Azure;
 					letter-spacing: 1px;
-                    padding: 20px 0;
-                    margin: 10px 0;
+					padding: 20px 0;
+					margin: 10px 0;
 					width: $hundred-percent;
 					text-align: center;
 				}
@@ -299,6 +305,26 @@ body {
 			letter-spacing: 0.2px;
 			font-size: $defaultFontSize;
 			line-height: $defaultFontSize + 1;
+			@include Flex(column);
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+
+			ul {
+				@include Flex(row);
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+
+				li {
+					padding: 10px 0;
+					font-weight: bold;
+					font-size: $defaultFontSize - 2;
+				}
+			}
+			div {
+				margin: 10px 0;
+			}
 		}
 	}
 }

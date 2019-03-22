@@ -5,7 +5,7 @@
  * Date         : 2019-03-12
  */
 
-@import "./colors", "./variables", "./mixins";
+@import "./colors", "./variables", "./mixins", "./fonts";
 
 $defaultRadius: 3px;
 $defaultPadding: 7px 10px;
@@ -133,4 +133,15 @@ $defaultPadding: 7px 10px;
 	.fab {
 		margin-right: 5px;
 	}
+}
+
+.search-box {
+	min-width: 445px;
+	padding: 10px 15px;
+	font-family: $defaultFontFamily;
+	outline: 0;
+	border: 0;
+	@include BorderRadius(25px);
+	margin: 0 10px;
+	font-size: $defaultFontSize - 1;
 }
